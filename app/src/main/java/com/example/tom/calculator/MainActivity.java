@@ -200,14 +200,18 @@ public class MainActivity extends AppCompatActivity {
                     line+="Math.sqrt(";
                     line+=numberOne+")";
                 }
-                //if number is too long that throw exception and clear everything
-                if(tempLenght>6){
-                    Toast.makeText(MainActivity.this,"too long Root",Toast.LENGTH_LONG ).show();
-                    ClearEverything();
-                }
+
                 tempResult.setText(line);                 //to add root to line and show it in calculating line
                 DisableNumbers();                         // after root cannot be pressed numbers
                 root.setEnabled(false);
+
+                //if number is too long that throw exception and clear everything
+                if(tempLenght>6){
+                    Toast.makeText(MainActivity.this,"too long Root",Toast.LENGTH_LONG ).show();
+                    EnableNumbers();
+                    minus.setEnabled(true);
+                    ClearEverything();
+                }
             }
         });
 
@@ -279,6 +283,8 @@ public class MainActivity extends AppCompatActivity {
             obj =interpreter.get("result");
         } catch (EvalError evalError) {
             Toast.makeText(MainActivity.this,"wrong input",Toast.LENGTH_LONG ).show();
+            EnableNumbers();
+            minus.setEnabled(true);
             ClearEverything();
             return 0;
 
