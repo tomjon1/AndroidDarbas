@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="text_size">22sp</string>
+    <string name="grid_width">0dp</string>
+    <dimen name="grid_height">80dp</dimen>
+    <string name="sqr_root">√¯¯</string>
+    <string name="grid_weight">.25</string>
+</resources>
